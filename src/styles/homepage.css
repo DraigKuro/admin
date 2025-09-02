@@ -1,0 +1,100 @@
+.homepage-container {
+    padding: 20px;
+}
+
+.pedidos-section {
+    margin-top: 40px;
+}
+
+.pedidos-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.pedido-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pedido-info {
+    flex: 1;
+}
+
+.pedido-descripcion {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0 0 4px 0;
+}
+
+.pedido-mesa {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+}
+
+.pedido-estado {
+    font-size: 13px;
+    font-weight: bold;
+    padding: 6px 10px;
+    border-radius: 12px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.pedido-estado.preparando {
+    background: orange;
+    color: white;
+}
+
+.pedido-estado.listo {
+    background: green;
+    color: white;
+}
+
+.pedido-estado.servido {
+    background: blue;
+    color: white;
+}
+
+/* Panel Mesas */
+.mesas-section {
+    margin-top: 40px;
+}
+
+.mesas-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.mesa-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 160px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.mesa-indicador {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+}
+
+.mesa-indicador.ocupada {
+    background-color: red;
+}
+
+.mesa-indicador.libre {
+    background-color: green;
+}

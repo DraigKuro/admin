@@ -1,0 +1,120 @@
+.restaurant-logo-form input[type="file"],
+.restaurant-banner-form input[type="file"] {
+    padding: 0.6rem 1rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    font-size: 1rem;
+    background: #f9fafb;
+    color: #222;
+    outline: none;
+    transition: border 0.2s;
+    cursor: pointer;
+}
+
+.restaurant-logo-form input[type="file"]::-webkit-file-upload-button,
+.restaurant-banner-form input[type="file"]::-webkit-file-upload-button {
+    background: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    border-radius: 4px;
+    padding: 0.7rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.restaurant-logo-form input[type="file"]:hover::-webkit-file-upload-button,
+.restaurant-banner-form input[type="file"]:hover::-webkit-file-upload-button {
+    background: var(--color-accent);
+}
+
+.restaurant-general-form,
+.restaurant-contact-form,
+.restaurant-location-form,
+.restaurant-logo-form,
+.restaurant-banner-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.restaurant-general-form label,
+.restaurant-contact-form label,
+.restaurant-location-form label,
+.restaurant-logo-form label,
+.restaurant-banner-form label {
+    font-weight: 500;
+    margin-bottom: 0.3rem;
+    color: #374151;
+}
+
+.restaurant-general-form input,
+.restaurant-contact-form input,
+.restaurant-location-form input,
+.restaurant-logo-form input,
+.restaurant-banner-form input {
+    padding: 0.6rem 1rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    font-size: 1rem;
+    background: #f9fafb;
+    color: #222;
+    outline: none;
+    transition: border 0.2s;
+}
+
+.restaurant-general-form input:focus,
+.restaurant-contact-form input:focus,
+.restaurant-location-form input:focus,
+.restaurant-logo-form input:focus,
+.restaurant-banner-form input:focus {
+    border-color: var(--color-primary);
+}
+
+.restaurant-general-form button,
+.restaurant-contact-form button,
+.restaurant-location-form button,
+.restaurant-logo-form button,
+.restaurant-banner-form button {
+    background: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    border-radius: 4px;
+    padding: 0.7rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background 0.2s;
+}
+
+.restaurant-general-form button:hover,
+.restaurant-contact-form button:hover,
+.restaurant-location-form button:hover,
+.restaurant-logo-form button:hover,
+.restaurant-banner-form button:hover {
+    background: var(--color-accent);
+}
+
+.restaurant-logo-form .logo-preview-container {
+  margin-bottom: 1rem;
+  width: 150px;
+  height: 150px;
+  border: 1px solid #e5e7eb;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.restaurant-logo-form .logo-preview-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
