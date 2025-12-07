@@ -9,6 +9,7 @@ import Drinks from "./pages/Drinks";
 import Menus from "./pages/Menus";
 import Promotions from './pages/Promotion';
 import Tables from "./pages/Tables";
+import Register from "./pages/Register";
 
 import './App.css'
 
@@ -24,6 +25,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/restaurant-info" element={<RestaurantInfo />} />
         <Route path="/dishes" element={<Dishes />} />
         <Route path="/drinks" element={<Drinks />} />

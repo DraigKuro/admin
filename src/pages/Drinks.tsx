@@ -121,7 +121,7 @@ export default function Drinks() {
                                 {sortedDrinks.map(drink => (
                                     <tr key={drink._id || drink.nombre}>
                                         <td>{drink.nombre}</td>
-                                        <td>{drink.categoria}</td>
+                                        <td>{drink.tipo}</td>
                                         <td>{drink.descripcion}</td>
                                         <td className="price">€ {drink.precio.toFixed(2)}</td>
                                         <td>
