@@ -14,7 +14,7 @@ export default function DrinkForm({ drink, onSave, onCancel }: DrinkFormProps) {
         drink || {
             _id: undefined,
             nombre: "",
-            categoria: "",
+            tipo: "",
             descripcion: "",
             precio: 0,
             imagen: undefined,
@@ -78,7 +78,7 @@ export default function DrinkForm({ drink, onSave, onCancel }: DrinkFormProps) {
                     <select
                         name="categoria"
                         className="dishes-form-input"
-                        value={form.categoria}
+                        value={form.tipo}
                         onChange={handleChange}
                         required
                     >

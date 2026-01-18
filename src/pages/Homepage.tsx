@@ -10,7 +10,7 @@ export default function Homepage() {
   const [mesas, setMesas] = useState<Table[]>([]);
   const [pedidos, setPedidos] = useState<Order[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const [, setError] = useState<string | null>(null);
 
   const cargarDatos = async () => {
     try {
@@ -101,7 +101,7 @@ export default function Homepage() {
                 >
                   <div className="mesa-content">
                     <span className="mesa-nombre">Mesa {mesa.nombre}</span>
-                    
+
                     <div className="alerta-icons">
                       {mesa.peticionCamarero && <span className="icon-bell">🔔</span>}
                       {mesa.peticionCuenta && <span className="icon-bill">💰</span>}
@@ -109,7 +109,7 @@ export default function Homepage() {
                   </div>
 
                   <div className={`mesa-indicador ${mesa.estado ? "ocupada" : "libre"}`} />
-                  
+
                   {tieneAlerta && (
                     <div className="atender-hint">Clic para atender</div>
                   )}
