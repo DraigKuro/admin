@@ -5,4 +5,7 @@ export interface Table {
   estado: boolean;
   activo: boolean;
   qrUrl: string;
+  peticionCamarero: boolean;
+  peticionCuenta: boolean;
+  updatedAt?: string;
 }

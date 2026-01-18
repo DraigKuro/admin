@@ -38,6 +38,15 @@ export const tableApi = {
         return res.json();
     },
 
+    clearAlerts: async (id: string): Promise<Table> => {
+        const res = await fetch(`${API_BASE}/tables/${id}/clear-alerts`, {
+            method: "PATCH",
+            headers: { "Content-Type": "application/json" }
+        });
+        if (!res.ok) throw new Error("Error al limpiar alertas de la mesa");
+        return res.json();
+    },
+
     remove: async (id: string) => {
         const res = await fetch(`${API_BASE}/tables/${id}`, { method: "DELETE" });
         if (!res.ok) throw new Error("Error al eliminar mesa");

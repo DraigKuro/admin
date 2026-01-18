@@ -18,7 +18,7 @@ export const drinkApi = {
     create: async (data: Drink, file?: File) => {
         const formData = new FormData();
         formData.append("name", data.nombre);
-        formData.append("categoria", data.categoria);
+        formData.append("categoria", data.tipo);
         formData.append("description", data.descripcion);
         formData.append("price", data.precio.toString());
         formData.append("activo", data.activo.toString());
