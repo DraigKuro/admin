@@ -1,69 +1,50 @@
-# React + TypeScript + Vite
+# Sabority Admin Web
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Panel de administración web de [Sabority](https://github.com/DraigKuro/sabority), pensado para que el personal del restaurante gestione mesas, menú y pedidos en tiempo real.
 
-Currently, two official plugins are available:
+Esta aplicación consume la [`sabority-api`](https://github.com/DraigKuro/sabority-api) y es el centro de operaciones del restaurante: mientras el cliente pide desde la mesa con la app Android ([`sabority-android`](https://github.com/DraigKuro/sabority-android)), el personal supervisa y gestiona todo desde aquí.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Stack
 
-## Expanding the ESLint configuration
+- **TypeScript** + **React**
+- Comunicación con la API mediante módulos dedicados por recurso (`dishApi`, `drinkApi`, `menuApi`, `orderApi`, `promotionApi`, `restaurantApi`, `tableApi`)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Arquitectura
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+La aplicación centraliza su estado a través de un **Context** (`RestaurantContext`), que se encarga de:
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- Hacer las llamadas iniciales a la API al arrancar la sesión (datos del restaurante, menú, estado de las mesas).
+- Exponer esos datos y las funciones para modificarlos a toda la jerarquía de componentes mediante `useContext()`, evitando *prop drilling*.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Cada recurso del backend tiene su propio módulo de API en el frontend, que encapsula las peticiones HTTP (`GET`, `POST`, `PUT`, `DELETE`) y el manejo de errores de forma consistente.
+
+El punto de entrada es `App.tsx`, donde se define la estructura general y el enrutado entre las distintas secciones.
+
+## Secciones del panel
+
+- **Inicio de sesión** — pantalla de login con email y contraseña.
+- **Panel de órdenes** — vista principal con el estado de las mesas y los pedidos en curso.
+- **Datos del restaurante** — configuración general, contacto, ubicación y logo, organizada en pestañas.
+- **Platos y bebidas** — alta, edición y eliminación del catálogo, con imagen y categoría.
+- **Menú** — composición de platos y bebidas en menús estructurados.
+- **Promociones** — creación y gestión de ofertas temporales.
+- **Mesas** — gestión del mapa de mesas y generación de su código QR.
+
+## Estado del proyecto
+
+- ✅ CRUD funcional contra la API para platos, bebidas, menús, promociones, restaurante y mesas.
+- ✅ Gestión de estado centralizada vía Context.
+- ⚠️ La pantalla de login está construida en el front, pero **todavía no está conectada a una autenticación real** (la API aún no implementa JWT) — por ahora el acceso al panel no está protegido.
+
+## Instalación
+
+```bash
+npm install
+npm start
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Configura la URL de la API en el `.env` correspondiente antes de arrancar.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Contexto del proyecto
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Este repositorio forma parte de [Sabority](https://github.com/DraigKuro/sabority), proyecto de fin de curso (2º DAM) compuesto por una API, esta web de administración y una app Android para el cliente, además de una primera versión web ([`sabority-web-legacy`](https://github.com/DraigKuro/sabority-web-legacy)) que dio origen al proyecto.
